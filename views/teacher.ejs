@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Teacher</title>
+</head>
+<body>
+    <div class = "container">
+        <%if(message.length>0){ %>
+            <div class = "alert alert-success">
+                <%=message%>
+            </div>
+        <%}%>
+        <h1 class="mb-4">Results</h1>
+        <a href="/teacher/new" class="btn btn-success">New Result</a>
+        <div class = "card mt-4">
+            <div class = "card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Rollno</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date Of Birth</th>
+                            <th scope="col">Score</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% results.forEach((result,index)=>{%>
+                        <tr>
+                            <th scope="row"><%=index+1%></th>
+                            <td><%=result.rollno%></td>
+                            <td><%=result.name%></td>
+                            <td><%=result.dob.toLocaleDateString()%></td>
+                            <td><%=result.score%></td>
+                            <td>
+                                <a href="/teacher/edit/<%=result.id%>" class="btn border-shadow update">
+                                    <span class="text-gradient"><i class="fas fa-pencil-alt" style="font-size:20px;"></i></span>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="/teacher/<%=result.id%>?_method=DELETE" method="POST" class="d-inline">
+                                    <button class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fa fa-trash-o" style="font-size:24px;color:red"></i></span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <%})%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>Student</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4" align="center">Login into an account</h1>
+        <%if(message.length>0){ %>
+            <div class = "alert alert-success">
+                <%=message%>
+            </div>
+        <%}%>
+        <div class="row">
+            <div class = "col-4">
+                <img src="/image/img-login.jpg" alt="signup" width="300" height="370">
+            </div>
+            <div class = "col-6">
+                <form action="/auth/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required type="email" name="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input required type="password" name="password" id="password" class="form-control">
+                    <button type="submit" class="btn btn-primary mt-2">LOGIN</button>
+                    <div className = "text-center mb-2">
+                        Don't have an account?
+                        <a href="/auth/signup" className="btn btn-primary">Signup</a>
+                    </div> 
+                    
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

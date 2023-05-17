@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>Student</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4" align="center">Create an account</h1>
+        <%if(message.length>0){ %>
+            <div class = "alert alert-success">
+                <%=message%>
+            </div>
+        <%}%>
+        <div class="row">
+            <div class = "col-4">
+                <img src="/image/img3.jpg" alt="signup" width="300" height="370">
+            </div>
+            <div class = "col-6">
+                <form action="/auth/signup" method="POST">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input required value = "<%=user.firstName%>" type="firstName" name="firstName" id="firstName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input required value = "<%=user.lastName%>" type="lastName" name="lastName" id="lastName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required value = "<%=user.email%>" type="email" name="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input required value = "<%=user.password%>" type="password" name="password" id="password" class="form-control">
+                    </div>
+                        <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input required value = "<%=user.confirmPassword%>" type="confirmPassword" name="confirmPassword" id="confirmPassword" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">SIGNUP</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
